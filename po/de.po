@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-05 14:38+0000\n"
-"PO-Revision-Date: 2015-08-25 20:21+0100\n"
+"PO-Revision-Date: 2015-08-31 20:24+0100\n"
 "Last-Translator: mike99 <mike99@mail.to>\n"
 "Language-Team: openATV\n"
 "Language: de\n"
@@ -2568,6 +2568,18 @@ msgid "Directory long"
 msgstr "Verzeichnis lang"
 
 #: ButtonSetup.py
+msgid "Favorites"
+msgstr "Favoriten"
+
+#: ButtonSetup.py
+msgid "Favorites long"
+msgstr "Favoriten lang"
+
+#: ButtonSetup.py
+msgid "Toggle LCD LiveTV"
+msgstr "Umschalten LCD/LiveTV"
+
+#: ButtonSetup.py
 msgid "Back/Recall"
 msgstr ""
 
@@ -4118,12 +4130,17 @@ msgstr "Installiere Paketinhalt... Bitte warten."
 msgid "Instant recording..."
 msgstr "Sofortaufnahme"
 
-#
+#: Recordings.py:156
 msgid "Instant record location"
 msgstr "Verzeichnis der Sofortaufnahme"
 
+#: Recordings.py:139
 msgid "Instant recording location"
 msgstr "Ziel für Sofortaufnahmen"
+
+#: Recordings.py:205
+msgid "Instant recordings location"
+msgstr "Speicherort für Sofortaufnahmen"
 
 msgid "Interface"
 msgstr "Schnittstelle"
@@ -5941,7 +5958,7 @@ msgstr ""
 "für jeden Tuner einzeln starten."
 
 #
-msgid "Press OK to select a Provider."
+msgid "Press OK to select a provider."
 msgstr "OK drücken um einen Provider auszuwählen."
 
 #
@@ -8018,13 +8035,6 @@ msgstr ""
 "OK drücken, um den Assistenten zu verlassen."
 
 msgid ""
-"The AutoTimer plugin is not installed!\n"
-"Please install it."
-msgstr ""
-"Das Autotimer-Plugin ist nicht installiert!\n"
-"Bitte installieren."
-
-msgid ""
 "The Cool TV Guide plugin is not installed!\n"
 "Please install it."
 msgstr ""
@@ -8036,19 +8046,13 @@ msgid "The DVD standard doesn't support H.264 (HDTV) video streams. Do you want 
 msgstr "Der DVD-Standard unterstützt keine H.264 (HDTV) Videos. Soll stattdessen eine Daten-DVD im %s %s-Format (die nicht in einem herkömmlichen DVD-Player abspielbar ist) erstellt werden?"
 
 msgid ""
-"The EPGSearch plugin is not installed!\n"
-"Please install it."
-msgstr ""
-"Das EPGSearch-Plugin ist nicht installiert!\n"
-"Bitte installieren."
-
-msgid ""
 "The Filesystem on your Timeshift-Device does not support hardlinks.\n"
 "Make sure it is formated in EXT2 or EXT3!"
 msgstr ""
 "Das Dateisystem auf dem Timeshift-Aufnahmegerät unterstützt keine Hardlinks.\n"
 "Formatierung in EXT2 oder EXT3 sicherstellen!"
 
+# InfoBar.py
 msgid ""
 "The IMDb plugin is not installed!\n"
 "Please install it."
@@ -8062,6 +8066,44 @@ msgid ""
 msgstr ""
 "Das MediaPlayer-Plugin ist nicht installiert!\n"
 "Bitte installieren."
+
+msgid ""
+"The MediaCenter plugin is not installed!\n"
+"Please install it."
+msgstr ""
+"Das MediaCenter-Plugin ist nicht installiert!\n"
+"Bitte installieren."
+
+msgid ""
+"The AutoTimer plugin is not installed!\n"
+"Please install it."
+msgstr ""
+"Das AutoTimer-Plugin ist nicht installiert!\n"
+"Bitte installieren."
+
+msgid ""
+"The EPGSearch plugin is not installed!\n"
+"Please install it."
+msgstr ""
+"Das EPGSearch-Plugin ist nicht installiert!\n"
+"Bitte installieren."
+
+msgid ""
+"The MediaPortal plugin is not installed!\n"
+"Please install it."
+msgstr ""
+"Das MediaPortal-Plugin ist nicht installiert!\n"
+"Bitte installieren."
+
+msgid ""
+"The VideoMode plugin is not installed!\n"
+"Please install it."
+msgstr ""
+"Das VideoMode-Plugin ist nicht installiert!\n"
+"Bitte installieren."
+
+msgid "Exit movie player?"
+msgstr "MoviePlayer verlassen?"
 
 #
 msgid ""
@@ -8634,7 +8676,7 @@ msgid "Timer sanity error"
 msgstr "Timer-Einstellungen unklar"
 
 #
-msgid "Timer Selection"
+msgid "Timer selection"
 msgstr "Timer-Auswahl"
 
 #
@@ -9421,7 +9463,7 @@ msgstr "Wöchentlich"
 
 #
 msgid ""
-"Welcome to the cutlist editor.\n"
+"Welcome to the Cutlist editor.\n"
 "\n"
 "Seek to the start of the stuff you want to cut away. Press OK, select 'start cut'.\n"
 "\n"
@@ -10050,6 +10092,12 @@ msgstr "Schalte auf Live-TV um - Timeshift bleibt weiterhin aktiv !"
 msgid "First playable timeshift file!"
 msgstr "Sie befinden sich am Anfang der ersten abspielbaren Timeshift-Datei !"
 
+msgid "Show status messages when switch to live TV"
+msgstr "Zeige Statusmeldungen wenn zum Live-TV geschaltet wird"
+
+msgid "When enabled, show status or error messages."
+msgstr "Wenn 'Ja' ausgewählt wird, werden Status- oder Fehlermeldungen angezeigt."
+
 msgid ""
 "Can't going to live TV!\n"
 "Switch to live TV and restart Timeshift ?"
@@ -10120,11 +10168,18 @@ msgid "activate network adapter configuration"
 msgstr "Einstellungen des Netzwerk-Adapters aktivieren"
 
 #
-msgid "add Provider"
+msgid "CIselectMainMenu"
+msgstr "CI-Hauptmenü"
+
+#
+msgid "CIconfigMenu"
+msgstr "CI-Zuweisung"
+#
+msgid "Add provider"
 msgstr "Provider hinzufügen"
 
 #
-msgid "add Service"
+msgid "Add service"
 msgstr "Kanal hinzufügen"
 
 #
@@ -10216,11 +10271,11 @@ msgid "as plugin in extended bar"
 msgstr "Als Plugin in Erweiterungsliste"
 
 #
-msgid "assigned CAIds:"
+msgid "Assigned CAIds:"
 msgstr "Zugewiesene CAIDs:"
 
 #
-msgid "assigned Services/Provider:"
+msgid "Assigned services/provider:"
 msgstr "Zugewiesene Services/Provider:"
 
 msgid "at beginning"
@@ -10798,7 +10853,7 @@ msgid "no CI slots found"
 msgstr "Kein CI-Slot gefunden"
 
 #
-msgid "no Services/Providers selected"
+msgid "No services/providers selected"
 msgstr "Keine Service/Provider ausgewählt"
 
 #
@@ -11100,7 +11155,7 @@ msgid "select"
 msgstr "Wähle"
 
 #
-msgid "select CAId"
+msgid "Select CAId"
 msgstr "CAID auswählen"
 
 #
@@ -13565,13 +13620,13 @@ msgstr "Papierkorb in der Filmliste benutzen"
 msgid "Display message before playing next movie"
 msgstr "Zeige Info bevor der nächste Film abgespielt wird."
 
-#
+#: gEPG
 msgid "Service font size"
-msgstr "Einstellung der Schriftgröße"
+msgstr "Schriftgröße für Sendernamen"
 
-#
+#: gEPG
 msgid "Event font size"
-msgstr "Ereignis Schriftgröße"
+msgstr "Schriftgröße für Ereignis"
 
 #
 msgid "When nonzero, a recording will start earlier than the starting time as indicated by the EPG."
@@ -14138,8 +14193,20 @@ msgstr ""
 "\n"
 "In Standby gehen?"
 
-msgid "Only active when in standby"
-msgstr "Nur aktiv wenn die Box im Standby ist"
+msgid "without Query"
+msgstr "ohne Rückfrage"
+
+msgid "only in Standby"
+msgstr "nur im Standby"
+
+msgid "Standard (always)"
+msgstr "Standard (immer)"
+
+msgid "Execution condition"
+msgstr "Ausführungsbedingung"
+
+msgid "The setting 'without query' is the same as 'standard' without additional confirmation query. So can the receiver shutdown also if you not watch tv (e.g. video, hbbtv) -  only recommended for sleep timer. All other dependencies (e.g. recordings, time range) stay persist."
+msgstr "Die Einstellung 'ohne Rückfrage' ist das gleiche wie 'Standard' ohne zusätzliche Bestätigungsabfrage. So kann der Receiver herunterfahren wenn Sie nicht fernsehen (z.B. Video, HbbTV) - nur für Sleep-Timer empfohlen. Alle anderen Abhängigkeiten (z.B. Aufnahmen, Zeitbereich) bleiben bestehen."
 
 msgid ""
 "Your %s %s wants to restart the user interface.\n"
@@ -15015,7 +15082,7 @@ msgstr "Hier können Sie die Datenquelle für die Anzeigen in der Infobar einste
 
 #: ButtonSetup.py
 msgid "Click on your remote on the button you want to change"
-msgstr "Drücke den Button der Fernbedienung der neu belegt werden soll und dann drücke \"OK\""
+msgstr "Drücken Sie die Taste der Fernbedienung die neu belegt werden soll und danach \"OK\""
 
 #: ButtonSetup.py
 msgid "Info (EPG)"
@@ -15272,6 +15339,10 @@ msgstr "Zeige Infoleiste"
 #: ButtonSetup.py
 msgid "Show service list"
 msgstr "Zeige Kanal-Liste"
+
+#: ButtonSetup.py
+msgid "Show servicelist or movies"
+msgstr "Zeige Kanal-Liste oder Filme"
 
 #: ButtonSetup.py
 msgid "Show favourites list"
@@ -16245,6 +16316,10 @@ msgstr "Was soll nach dem ausgeführten Timer gemacht werden? 'Automatisch' läs
 #: TimerEntry.py
 msgid "Where should the recording be saved?"
 msgstr "Wählen Sie das Zielverzeichnis für die Aufnahme aus."
+
+#: TimerEntry.py
+msgid "Current location"
+msgstr "Aktuelles Zielverzeichnis"
 
 #: TimerEntry.py
 msgid "Choose a tag for easy finding a recording."
