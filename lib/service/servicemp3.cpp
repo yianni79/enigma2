@@ -2860,19 +2860,13 @@ void eServiceMP3::saveCuesheet()
 {
 	std::string filename = m_ref.path;
 
-		/* save cuesheet only when main file is accessible. */
-#if GST_VERSION_MAJOR < 1
+	/* save cuesheet only when main file is accessible. */
 	if (::access(filename.c_str(), R_OK) < 0)
 		return;
-#else
-		/* save cuesheet only when main file is accessible. and no TOC chapters avbl*/
-	if ((::access(filename.c_str(), R_OK) < 0) || m_use_chapter_entries)
+
+	/* not overwriting the *.cuts file when no cuts are available */
+	if (m_cue_entries.size() == 0)
 		return;
-#endif
-	/* do not save to file if there are no cuts */
-	gboolean empty_cue = FALSE;
-	if(m_cue_entries.begin() == m_cue_entries.end())
-		empty_cue = TRUE;
 
 	filename.append(".cuts");
 
@@ -2880,13 +2874,6 @@ void eServiceMP3::saveCuesheet()
 
 	if (f)
 	{
-		/* remove the cuts file if cue is empty */
-		if(empty_cue)
-		{
-			fclose(f);
-			remove(filename.c_str());
-			return;
-		}
 		unsigned long long where;
 		int what;
 
