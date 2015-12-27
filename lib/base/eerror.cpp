@@ -81,11 +81,13 @@ Signal2<void, int, const std::string&> logOutput;
 int logOutputConsole = 1;
 int logOutputColors = 1;
 
+static bool inNoNewLine = false;
+
 static pthread_mutex_t DebugLock =
 	PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP;
 
 
-static char *alertToken[] = {
+static const char *alertToken[] = {
 // !!! all strings must be written in lower case !!!
 	"error",
 	"fail",
@@ -93,20 +95,21 @@ static char *alertToken[] = {
 	"no module",
 	"no such file",
 	"cannot",
-	"invalid",
+	"invalid ",	//space after "invalid" to prevent false detect of "invalidate"
 	"bad parameter",
 	"not found",
 	NULL		//end of list
 };
 
-static char *warningToken[] = {
+static const char *warningToken[] = {
 // !!! all strings must be written in lower case !!!
 	"warning",
 	"unknown",
+	"not implemented",
 	NULL		//end of list
 };
 
-bool findToken(char *src, char **list)
+bool findToken(char *src, const char **list)
 {
 	bool res = false;
 	if(!src || !list)
@@ -190,19 +193,22 @@ void _eFatal(const char *file, int line, const char *function, const char* fmt, 
 	else
 	{
 		snprintf(header, sizeof(header),	\
+					"%s"		/*newline*/
 			ANSI_RED	"%s "		/*color of timestamp*/\
 			ANSI_GREEN	"%s:%d "	/*color of filename and linenumber*/\
 			ANSI_BGREEN	"%s "		/*color of functionname*/\
 			ANSI_BWHITE			/*color of debugmessage*/\
-			, timebuffer, file, line, function);
+			, inNoNewLine?"\n":"", timebuffer, file, line, function);
 		fprintf(stderr, "FATAL: %s%s\n"ANSI_RESET, header , buf);
 	}
 	bsodFatal("enigma2");
+	inNoNewLine = false;
 }
 
 #ifdef DEBUG
 void _eDebug(const char *file, int line, const char *function, const char* fmt, ...)
 {
+	char flagstring[10];
 	char timebuffer[32];
 	char header[256];
 	char buf[1024];
@@ -211,7 +217,6 @@ void _eDebug(const char *file, int line, const char *function, const char* fmt, 
 	bool is_warning = false;
 
 	printtime(timebuffer, sizeof(timebuffer));
-	snprintf(header, sizeof(header), "%s %s:%d %s ", timebuffer, file, line, function);
 	va_list ap;
 	va_start(ap, fmt);
 	vsnprintf(buf, sizeof(buf), fmt, ap);
@@ -220,38 +225,64 @@ void _eDebug(const char *file, int line, const char *function, const char* fmt, 
 	is_alert = findToken(ncbuf, alertToken);
 	if(!is_alert)
 		is_warning = findToken(ncbuf, warningToken);
+
+	if(is_alert)
+		snprintf(flagstring, sizeof(flagstring), "%s", "[ E ]");
+	else if(is_warning)
+		snprintf(flagstring, sizeof(flagstring), "%s", "[ W ]");
+	else
+		snprintf(flagstring, sizeof(flagstring), "%s", "[   ]");
+
+	snprintf(header, sizeof(header), "%s %s %s:%d %s ", timebuffer, flagstring, file, line, function);
 	singleLock s(DebugLock);
 	logOutput(lvlDebug, std::string(header) + std::string(ncbuf) + "\n");
 	if (logOutputConsole)
 	{
 		if (!logOutputColors)
-			fprintf(stderr, "%s%s\n", header , ncbuf);
+			fprintf(stderr, "%s%s\n", header, ncbuf);
 		else
 		{
 			snprintf(header, sizeof(header),	\
+						"%s"		/*newline*/
 						"%s%s "		/*color of timestamp*/\
 				ANSI_GREEN	"%s:%d "	/*color of filename and linenumber*/\
 				ANSI_BGREEN	"%s "		/*color of functionname*/\
 				ANSI_BWHITE			/*color of debugmessage*/\
-				, is_alert?ANSI_BRED:is_warning?ANSI_BYELLOW:ANSI_WHITE, timebuffer, file, line, function);
+				, inNoNewLine?"\n":"", is_alert?ANSI_BRED:is_warning?ANSI_BYELLOW:ANSI_WHITE, timebuffer, file, line, function);
 			fprintf(stderr, "%s%s\n"ANSI_RESET, header, buf);
 		}
 	}
+	inNoNewLine = false;
 }
 
 void _eDebugNoNewLineStart(const char *file, int line, const char *function, const char* fmt, ...)
 {
+	char flagstring[10];
 	char timebuffer[32];
 	char header[256];
 	char buf[1024];
 	char ncbuf[1024];
+	bool is_alert = false;
+	bool is_warning = false;
+
 	printtime(timebuffer, sizeof(timebuffer));
-	snprintf(header, sizeof(header), "%s %s:%d %s ", timebuffer, file, line, function);
 	va_list ap;
 	va_start(ap, fmt);
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 	removeAnsiEsc(buf, ncbuf);
+	is_alert = findToken(ncbuf, alertToken);
+	if(!is_alert)
+		is_warning = findToken(ncbuf, warningToken);
+
+	if(is_alert)
+		snprintf(flagstring, sizeof(flagstring), "%s", "< E >");
+	else if(is_warning)
+		snprintf(flagstring, sizeof(flagstring), "%s", "< W >");
+	else
+		snprintf(flagstring, sizeof(flagstring), "%s", "<   >");
+
+	snprintf(header, sizeof(header), "%s %s %s:%d %s ", timebuffer, flagstring, file, line, function);
 	singleLock s(DebugLock);
 	logOutput(lvlDebug, std::string(header) + std::string(ncbuf));
 	if (logOutputConsole)
@@ -261,14 +292,15 @@ void _eDebugNoNewLineStart(const char *file, int line, const char *function, con
 		else
 		{
 			snprintf(header, sizeof(header),	\
-				ANSI_WHITE	"%s "		/*color of timestamp*/\
+				ANSI_WHITE	"%s%s "		/*color of timestamp*/\
 				ANSI_GREEN	"%s:%d "	/*color of filename and linenumber*/\
 				ANSI_BGREEN	"%s "		/*color of functionname*/\
 				ANSI_BWHITE			/*color of debugmessage*/\
-				, timebuffer, file, line, function);
+				, is_alert?ANSI_BRED:is_warning?ANSI_BYELLOW:ANSI_WHITE, timebuffer, file, line, function);
 			fprintf(stderr, "%s%s", header, buf);
 		}
 	}
+	inNoNewLine = true;
 }
 
 void eDebugNoNewLine(const char* fmt, ...)
@@ -283,8 +315,9 @@ void eDebugNoNewLine(const char* fmt, ...)
 	singleLock s(DebugLock);
 	logOutput(lvlDebug, std::string(ncbuf));
 	if (logOutputConsole)
+	{
 		fprintf(stderr, "%s", logOutputColors? buf : ncbuf);
-
+	}
 }
 
 void eDebugNoNewLineEnd(const char* fmt, ...)
@@ -305,6 +338,7 @@ void eDebugNoNewLineEnd(const char* fmt, ...)
 		else
 			fprintf(stderr, "%s\n"ANSI_RESET, buf);
 	}
+	inNoNewLine = false;
 }
 
 void _eWarning(const char *file, int line, const char *function, const char* fmt, ...)
@@ -314,7 +348,7 @@ void _eWarning(const char *file, int line, const char *function, const char* fmt
 	char buf[1024];
 	char ncbuf[1024];
 	printtime(timebuffer, sizeof(timebuffer));
-	snprintf(header, sizeof(header), "%s %s:%d %s ", timebuffer, file, line, function);
+	snprintf(header, sizeof(header), "%s [!W!] %s:%d %s ", timebuffer, file, line, function);
 	va_list ap;
 	va_start(ap, fmt);
 	vsnprintf(buf, sizeof(buf), fmt, ap);
@@ -329,14 +363,16 @@ void _eWarning(const char *file, int line, const char *function, const char* fmt
 		else
 		{
 			snprintf(header, sizeof(header),	\
+						"%s"		/*newline*/
 				ANSI_BYELLOW	"%s "	/*color of timestamp*/\
 				ANSI_GREEN	"%s:%d "	/*color of filename and linenumber*/\
 				ANSI_BGREEN	"%s "		/*color of functionname*/\
 				ANSI_BWHITE			/*color of debugmessage*/\
-				, timebuffer, file, line, function);
+				, inNoNewLine?"\n":"", timebuffer, file, line, function);
 			fprintf(stderr, "%s%s\n"ANSI_RESET, header, buf);
 		}
 	}
+	inNoNewLine = false;
 }
 #endif // DEBUG
 
@@ -344,22 +380,37 @@ void _eWarning(const char *file, int line, const char *function, const char* fmt
 void ePythonOutput(const char *file, int line, const char *function, const char *string)
 {
 #ifdef DEBUG
+	char flagstring[10];
 	char timebuffer[32];
 	char header[256];
-	char buf[1024];
-	char ncbuf[1024];
+	char buf[2*1024];
+	char ncbuf[2*1024];
 	bool is_alert = false;
 	bool is_warning = false;
 
+	printtime(timebuffer, sizeof(timebuffer));
 	if(strstr(file, "e2reactor.py") || strstr(file, "traceback.py"))
 		is_alert = true;
-	printtime(timebuffer, sizeof(timebuffer));
-	snprintf(header, sizeof(header), "%s %s:%d %s ", timebuffer, file, line, function);
 	snprintf(buf, sizeof(buf), "%s", string);
 	removeAnsiEsc(buf, ncbuf);
 	is_alert |= findToken(ncbuf, alertToken);
 	if(!is_alert)
 		is_warning = findToken(ncbuf, warningToken);
+
+	if(is_alert)
+		snprintf(flagstring, sizeof(flagstring), "%s", "{ E }");
+	else if(is_warning)
+		snprintf(flagstring, sizeof(flagstring), "%s", "{ W }");
+	else
+		snprintf(flagstring, sizeof(flagstring), "%s", "{   }");
+
+	if(line)
+		snprintf(header, sizeof(header), "%s %s %s:%d %s ", timebuffer, flagstring, file, line, function);
+	else
+	{
+		snprintf(flagstring, sizeof(flagstring), "%s", "{ D }");
+		snprintf(header, sizeof(header), "%s %s ", timebuffer, flagstring);
+	}
 	singleLock s(DebugLock);
 	logOutput(lvlWarning, std::string(header) + std::string(ncbuf));
 	if (logOutputConsole)
@@ -368,16 +419,29 @@ void ePythonOutput(const char *file, int line, const char *function, const char 
 			fprintf(stderr, "%s%s", header, ncbuf);
 		else
 		{
-			snprintf(header, sizeof(header),	\
-						"%s%s "		/*color of timestamp*/\
-				ANSI_CYAN	"%s:%d "	/*color of filename and linenumber*/\
-				ANSI_BCYAN	"%s "		/*color of functionname*/\
-				ANSI_BWHITE			/*color of debugmessage*/\
-				, is_alert?ANSI_BRED:is_warning?ANSI_BYELLOW:ANSI_WHITE, timebuffer, file, line, function);
+			if(line)
+			{
+				snprintf(header, sizeof(header),	\
+							"%s"		/*newline*/
+							"%s%s "		/*color of timestamp*/\
+					ANSI_CYAN	"%s:%d "	/*color of filename and linenumber*/\
+					ANSI_BCYAN	"%s "		/*color of functionname*/\
+					ANSI_BWHITE			/*color of debugmessage*/\
+					, inNoNewLine?"\n":"", is_alert?ANSI_BRED:is_warning?ANSI_BYELLOW:ANSI_WHITE, timebuffer, file, line, function);
+			}
+			else
+			{
+				snprintf(header, sizeof(header),	\
+							"%s"		/*newline*/
+							"%s%s "		/*color of timestamp*/\
+					ANSI_BWHITE			/*color of debugmessage*/\
+					, inNoNewLine?"\n":"", ANSI_MAGENTA, timebuffer);
+			}
 			fprintf(stderr, "%s%s"ANSI_RESET, header, buf);
 		}
 	}
 #endif
+	inNoNewLine = false;
 }
 
 void eWriteCrashdump()

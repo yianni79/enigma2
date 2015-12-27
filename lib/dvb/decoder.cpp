@@ -309,6 +309,7 @@ eDVBVideo::eDVBVideo(eDVBDemux *demux, int dev)
 #define VIDEO_STREAMTYPE_MPEG4_Part2 4
 #define VIDEO_STREAMTYPE_VC1_SM 5
 #define VIDEO_STREAMTYPE_MPEG1 6
+#define VIDEO_STREAMTYPE_H265_HEVC 7
 
 int eDVBVideo::startPid(int pid, int type)
 {
@@ -334,6 +335,9 @@ int eDVBVideo::startPid(int pid, int type)
 			break;
 		case VC1_SM:
 			streamtype = VIDEO_STREAMTYPE_VC1_SM;
+			break;
+		case H265_HEVC:
+			streamtype = VIDEO_STREAMTYPE_H265_HEVC;
 			break;
 		}
 
@@ -808,7 +812,7 @@ int eTSMPEGDecoder::setState()
 		m_changed |= changeText | changeState;
 
 	const char *decoder_states[] = {"stop", "pause", "play", "decoderfastforward", "trickmode", "slowmotion"};
-	eDebug("decoder state: %s, vpid=%d, apid=%d", decoder_states[m_state], m_vpid, m_apid);
+	eDebug("decoder state: %s, vpid=%d, apid=%d, pcrpid=%d", decoder_states[m_state], m_vpid, m_apid, m_pcrpid);
 
 	int changed = m_changed;
 	if (m_changed & changePCR)

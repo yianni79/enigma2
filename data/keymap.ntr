@@ -399,15 +399,15 @@
 		<key id="KEY_REWIND" mapto="SeekbarBack" flags="l" />
 		<key id="KEY_FASTFORWARD" mapto="SeekbarFwd" flags="l" />
 
-		<key id="KEY_LEFT" mapto="seekBackManual" flags="l" />
-		<key id="KEY_RIGHT" mapto="seekFwdManual" flags="l" />
+		<key id="KEY_LEFT" mapto="seekBackManual" flags="m" />
+		<key id="KEY_RIGHT" mapto="seekFwdManual" flags="m" />
 
 		<key id="KEY_PREVIOUSSONG" mapto="seekBack" flags="b" />
 		<key id="KEY_NEXTSONG" mapto="seekFwd" flags="b" />
 		<key id="KEY_PREVIOUSSONG" mapto="SeekbarBack" flags="l" />
 		<key id="KEY_NEXTSONG" mapto="SeekbarFwd" flags="l" />
 
-		<key id="KEY_OK" mapto="unPauseService" flags="m" />
+		<key id="KEY_OK" mapto="toggleShow" flags="m" />
 
 		<key id="KEY_1" mapto="seekdef:1" flags="m" />
 		<key id="KEY_3" mapto="seekdef:3" flags="m" />
@@ -615,6 +615,7 @@
 		<key id="KEY_DOWN" mapto="prevPage" flags="m" />
 		<key id="KEY_OK" mapto="ok" flags="m" />
 		<key id="KEY_FILE" mapto="transparent" flags="m" />
+		<key id="KEY_VIDEO" mapto="transparent" flags="m" />		
 		<key id="KEY_MEDIA" mapto="transparent" flags="m" />
 		<key id="KEY_GREEN" mapto="green" flags="m" />
 		<key id="KEY_YELLOW" mapto="yellow" flags="m" />
@@ -936,6 +937,7 @@
 		<key id="KEY_RECORD" mapto="rec" flags="b"/>
 		<key id="KEY_RECORD" mapto="pvr_long" flags="l"/>
 		<key id="KEY_RADIO" mapto="radio" flags="b"/>
+		<key id="KEY_RADIO" mapto="radio_long" flags="l"/>
 		<key id="KEY_TV" mapto="showTv" flags="b"/>
 		<key id="KEY_TEXT" mapto="text" flags="m"/>
 		<key id="KEY_HELP" mapto="displayHelp" flags="b"/>
@@ -999,13 +1001,16 @@
 		<key id="KEY_SAT" mapto="sat_long" flags="l" />
 		<key id="KEY_AB" mapto="prov" flags="b" />
 		<key id="KEY_AB" mapto="prov_long" flags="l" />
-		<key id="KEY_CONTEXT_MENU" mapto="contextMenu" flags="m"/>
+		<key id="KEY_CONTEXT_MENU" mapto="contextMenu" flags="b"/>
+		<key id="KEY_CONTEXT_MENU" mapto="context_long" flags="l"/>
 		<key id="KEY_F1" mapto="f1" flags="b"/>
 		<key id="KEY_F1" mapto="f1_long" flags="l"/>
 		<key id="KEY_F2" mapto="f2" flags="b"/>
 		<key id="KEY_F2" mapto="f2_long" flags="l"/>
 		<key id="KEY_F3" mapto="f3" flags="b"/>
 		<key id="KEY_F3" mapto="f3_long" flags="l"/>
+		<key id="KEY_F4" mapto="f4" flags="b"/>
+		<key id="KEY_F4" mapto="f4_long" flags="l"/>
 		<key id="KEY_AUX" mapto="HDMIin" flags="b"/>
 		<key id="KEY_AUX" mapto="HDMIin_long" flags="l"/>
 	</map>

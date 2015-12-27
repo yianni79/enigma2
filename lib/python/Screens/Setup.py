@@ -207,7 +207,8 @@ class Setup(ConfigListScreen, Screen):
 	def changedEntry(self):
 		self.item = self["config"].getCurrent()
 		try:
-			if isinstance(self["config"].getCurrent()[1], ConfigYesNo) or isinstance(self["config"].getCurrent()[1], ConfigSelection):
+			#FIXME This code prevents an LCD refresh for this ConfigElement(s)
+			if not isinstance(self["config"].getCurrent()[1], ConfigText):
 				self.createSetup()
 		except:
 			pass

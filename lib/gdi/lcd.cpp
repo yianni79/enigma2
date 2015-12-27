@@ -83,7 +83,7 @@ eDBoxLCD::eDBoxLCD()
 		fgets(boxtype_name, sizeof(boxtype_name), boxtype_file);
 		fclose(boxtype_file);
 		
-		if((strcmp(boxtype_name, "7300S\n") == 0) || (strcmp(boxtype_name, "xp1000s\n") == 0) || (strcmp(boxtype_name, "odinm7\n") == 0) || (strcmp(boxtype_name, "ew7358\n") == 0) || (strcmp(boxtype_name, "ew7362\n") == 0) || (strcmp(boxtype_name, "formuler3\n") == 0) || (strcmp(boxtype_name, "hd1100\n") == 0) || (strcmp(boxtype_name, "hd1200\n") == 0) || (strcmp(boxtype_name, "hd500c\n") == 0) || (strcmp(boxtype_name, "vp7358ci\n") == 0) || (strcmp(boxtype_name, "vg2000\n") == 0) || (strcmp(boxtype_name, "vg5000\n") == 0) || (strcmp(boxtype_name, "sh1\n") == 0) || (strcmp(boxtype_name, "yhgd2580\n") == 0) || (strcmp(boxtype_name, "spycatmini\n") == 0) || (strcmp(boxtype_name, "fegasusx3\n") == 0) || (strcmp(boxtype_name, "fegasusx5s\n") == 0) || (strcmp(boxtype_name, "fegasusx5t\n") == 0) || (strcmp(boxtype_name, "ini-2000oc\n") == 0) || (strcmp(boxtype_name, "osmini\n") == 0))
+		if((strcmp(boxtype_name, "7300S\n") == 0) || (strcmp(boxtype_name, "xp1000s\n") == 0) || (strcmp(boxtype_name, "odinm7\n") == 0) || (strcmp(boxtype_name, "ew7358\n") == 0) || (strcmp(boxtype_name, "ew7362\n") == 0) || (strcmp(boxtype_name, "formuler3\n") == 0) || (strcmp(boxtype_name, "hd1100\n") == 0) || (strcmp(boxtype_name, "hd1200\n") == 0) || (strcmp(boxtype_name, "hd1265\n") == 0) || (strcmp(boxtype_name, "hd500c\n") == 0) || (strcmp(boxtype_name, "vp7358ci\n") == 0) || (strcmp(boxtype_name, "vg2000\n") == 0) || (strcmp(boxtype_name, "vg5000\n") == 0) || (strcmp(boxtype_name, "sh1\n") == 0) || (strcmp(boxtype_name, "yhgd2580\n") == 0) || (strcmp(boxtype_name, "spycatmini\n") == 0) || (strcmp(boxtype_name, "fegasusx3\n") == 0) || (strcmp(boxtype_name, "fegasusx5s\n") == 0) || (strcmp(boxtype_name, "fegasusx5t\n") == 0) || (strcmp(boxtype_name, "ini-2000oc\n") == 0) || (strcmp(boxtype_name, "osmini\n") == 0) || (strcmp(boxtype_name, "jj7362\n") == 0) || (strcmp(boxtype_name, "h3\n") == 0) || (strcmp(boxtype_name, "9900lx\n") == 0))
 		{
 			lcdfd = open("/dev/null", O_RDWR);
 		}
@@ -229,7 +229,7 @@ int eDBoxLCD::setLCDContrast(int contrast)
 int eDBoxLCD::setLCDBrightness(int brightness)
 {
 #ifndef NO_LCD
-	eDebug("setLCDBrightness %d", brightness);
+//	eDebug("setLCDBrightness %d", brightness);
 	FILE *f=fopen("/proc/stb/lcd/oled_brightness", "w");
 	if (!f)
 		f = fopen("/proc/stb/fp/oled_brightness", "w");
@@ -278,6 +278,7 @@ int eDBoxLCD::setLED(int value, int option)
 				eDebug("[LED] can't set led blinking time");
 			break;
 	}
+	return(0);
 }
 
 eDBoxLCD::~eDBoxLCD()

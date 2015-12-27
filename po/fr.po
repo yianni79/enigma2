@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-27 14:56+0200\n"
-"PO-Revision-Date: 2015-08-27 15:03+0200\n"
+"POT-Creation-Date: 2015-11-16 13:50+0100\n"
+"PO-Revision-Date: 2015-11-16 14:04+0100\n"
 "Last-Translator: Pr2 <dummy@dummy.com>\n"
 "Language-Team: french\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SourceCharset: iso-8859-15\n"
 
 msgid ""
@@ -31,6 +31,13 @@ msgstr ""
 "\n"
 "\n"
 "[User - bouquets (TV)]\n"
+
+msgid ""
+"\n"
+"<This tuner is configured automatically>"
+msgstr ""
+"\n"
+"<Ce tuner est configuré automatiquement>"
 
 msgid ""
 "\n"
@@ -830,6 +837,17 @@ msgstr "??"
 msgid "A"
 msgstr "A"
 
+#, python-format
+msgid ""
+"A Recording, RecordTimer or PowerTimer is running or begins in 15 minutes.\n"
+"Extend sleep timer 30 minutes. Your %s %s\n"
+"will shut down after Recording or Powertimer event. Get in Standby now?"
+msgstr ""
+"Un enregistrement, un enregistrement planifié ou une programmation d’alimentation est en cours\n"
+" \n"
+"ou commence dans 15 minutes. Etendre la programmation de veille de 30 minutes.\n"
+"Votre %s %s sera éteinds après l’enregistrement ou la programmation d’alimentation. Aller en veille maintenant?"
+
 msgid "A background update check is in progress, please wait a few minutes and try again."
 msgstr "Une chercher de mise-à-jour en tâche de fond est en cours, merci de patienter quelques minutes et de réessayer."
 
@@ -949,11 +967,27 @@ msgstr ""
 
 #, python-format
 msgid ""
+"A sleep timer wants to set your %s %s to standby.\n"
+"Do that now or set extend additional minutes?"
+msgstr ""
+"Une programmation de mise en veille veut passer votre %s %s en veille.\n"
+"Procéder maintenant ou étendre de quelques minutes?"
+
+#, python-format
+msgid ""
 "A sleep timer wants to shut down\n"
 "your %s %s. Shutdown now?"
 msgstr ""
 "Une programmation de mise en veille veut\n"
 "arrêter votre %s %s. Eteindre maintenant?"
+
+#, python-format
+msgid ""
+"A sleep timer wants to shut down your %s %s.\n"
+"Do that now or set extend additional minutes?"
+msgstr ""
+"Une programmation de mise en veille veutarrêter votre %s %s.\n"
+"Eteindre maintenant ou étendre de quelques minutes?"
 
 msgid "A small overview of the available icon states and actions."
 msgstr "Une vue d'ensemble des icônes d'états et d'actions disponibles."
@@ -1031,9 +1065,6 @@ msgstr "À propos..."
 
 msgid "Accesspoint:"
 msgstr "Point d'accès:"
-
-msgid "Action"
-msgstr "Action"
 
 msgid "Action on long powerbutton press"
 msgstr "Action lorsqu’on appuie longtemps sur le bouton power"
@@ -1453,9 +1484,6 @@ msgstr "Artistes"
 msgid "Arts/Culture"
 msgstr "Arts/Culture"
 
-msgid "Ask before shutdown"
-msgstr "Demander avant d’éteindre"
-
 msgid "Ask user"
 msgstr "Demander à l'utilisateur"
 
@@ -1836,6 +1864,9 @@ msgstr "Liste des bouquets"
 msgid "Brightness"
 msgstr "Luminosité"
 
+msgid "Brightness (Dimmed)"
+msgstr "Luminosité (affaiblie)"
+
 msgid "Brightness (Normal)"
 msgstr "Luminosité (normal)"
 
@@ -1955,6 +1986,10 @@ msgstr "Lecteur CF"
 
 msgid "CH"
 msgstr "CH"
+
+#, python-format
+msgid "CH%s"
+msgstr "CH%s"
 
 msgid "CHANGE BOUQUET"
 msgstr "CHANGER BOUQUET"
@@ -2186,6 +2221,15 @@ msgstr "Paramètres de la sélection des chaînes"
 
 msgid "Channel up"
 msgstr "Chaîne haut"
+
+msgid "Channel zap delay another button"
+msgstr "Délai du zap des chaînes pour les autres touches"
+
+msgid "Channel zap delay first button"
+msgstr "Délai du zap des chaînes pour le premier bouton"
+
+msgid "Channel zap delay mode"
+msgstr "Mode de délai du zap des chaînes"
 
 msgid "Channel:"
 msgstr "Chaîne:"
@@ -2481,6 +2525,9 @@ msgstr "Configure la façon dont les noms de fichiers d’enregistrement sont co
 msgid "Configure if and how crypto icons will be shown in the channel selection list."
 msgstr "Configure si et où les picons d’encryption seront affichés dans la liste des chaînes."
 
+msgid "Configure if and how long the latest service in the PiP will be remembered."
+msgstr "Configure si et combien de temps le dernier service en PiP sera mémorisé."
+
 msgid "Configure if and how service type icons will be shown."
 msgstr "Configure si et où l’icône du type de service sera affiché."
 
@@ -2538,6 +2585,9 @@ msgstr "Configure le comportement en atteignant la fin d’un film, pendant la l
 msgid "Configure the border width of the subtitles. The dark border makes the subtitles easier to read on a light background."
 msgstr "Configure la largeur de bordure des sous-titres. La bordure noire rend les sous-titres faciles à lire sur un fond clair."
 
+msgid "Configure the brightness level of the front panel display for dimmed operation."
+msgstr "Configurer le niveau de l'affichage du panneau avant pour le fonctionnement de la luminosité tamisée."
+
 msgid "Configure the brightness level of the front panel display for normal operation."
 msgstr "Configure le niveau de luminosité de l’affichage du panneau avant en mode normal."
 
@@ -2558,6 +2608,9 @@ msgstr "Configure le comportement du curseur dans la liste de sélection des cha
 
 msgid "Configure the duration in minutes for the screensaver."
 msgstr "Configure la durée en minutes de l’écran de veille."
+
+msgid "Configure the duration in minutes for the sleep timer."
+msgstr "Configure la durée en minutes de la programmation de mise en veille."
 
 msgid "Configure the first audio language (highest priority)."
 msgstr "Configure la première langue audio (priorité la plus élevée)."
@@ -2951,6 +3004,9 @@ msgstr "Statut courant:"
 
 msgid "Current device: "
 msgstr "Périphérique actuel: "
+
+msgid "Current location"
+msgstr "Emplacement actuel"
 
 #, python-format
 msgid "Current mode: %s \n"
@@ -3346,6 +3402,12 @@ msgstr "Retrait contour digital"
 msgid "Digital downmix"
 msgstr "Downmix numérique"
 
+msgid "Dim delay"
+msgstr "Délai avant affaiblissement"
+
+msgid "Dim the LCD after specified time."
+msgstr "Affaiblir le LCD après la durée spécifiée."
+
 msgid "Direct playback of linked titles without menu"
 msgstr "Lecture direct des titres liés sans menu"
 
@@ -3367,6 +3429,12 @@ msgstr "Désactiver"
 
 msgid "Disable Animations"
 msgstr "Désactiver animations"
+
+msgid "Disable FastZapping"
+msgstr "Désactiver le zapping rapide"
+
+msgid "Disable MiniTV"
+msgstr "Désactiver MiniTV"
 
 msgid "Disable Picture in Picture"
 msgstr "Désactiver l'incrustation d'image"
@@ -3858,8 +3926,14 @@ msgstr "Activer CIHelper pour SLOT CI1"
 msgid "Enable EIT EPG"
 msgstr "Activer EPG EIT"
 
+msgid "Enable FastZapping"
+msgstr "Activer le zapping rapide"
+
 msgid "Enable MHW EPG"
 msgstr "Activer EPG MHW"
+
+msgid "Enable MiniTV"
+msgstr "Activer MiniTV"
 
 msgid "Enable Netmed EPG"
 msgstr "Activer EPG Netmed"
@@ -3927,9 +4001,6 @@ msgstr "Activer la mise en cache du télétexte"
 msgid "Enable terrestrial LCN:"
 msgstr "Activer le LCN terrestre (numérotation officielle):"
 
-msgid "Enable timer"
-msgstr "Activer timer"
-
 msgid "Enable unlinked bouquets"
 msgstr "Activer les bouquets non liés"
 
@@ -3962,9 +4033,6 @@ msgstr "Heure fin"
 
 msgid "English"
 msgstr "Anglais"
-
-msgid "EnhancedMovieCenter"
-msgstr "EnhancedMovieCenter"
 
 msgid "Enigma2 Changes"
 msgstr "Changements Enigma2"
@@ -4013,6 +4081,37 @@ msgstr "Erreur"
 
 msgid "Error code"
 msgstr "Code d'erreur"
+
+msgid ""
+"Error creating FullHD-Skin.\n"
+"Using HD-Skin!"
+msgstr ""
+"Erreur lors de la création du thème FullHD.\n"
+"Utilisation du thème HD!"
+
+msgid ""
+"Error creating FullHD-Skin. Icon package download not available.\n"
+"Using HD-Skin!"
+msgstr ""
+"Erreur lors de la création du thème FullHD. Impossible de télécharger le pack d’icône.\n"
+"Utilisation du thème HD!"
+
+msgid ""
+"Error creating FullHD-Skin. Not enough flash memory free.\n"
+"Using HD-Skin!"
+msgstr ""
+"Erreur lors de la création du thème FullHD. Pas assez de mémoire flash libre.\n"
+"Utilisation du thème HD!"
+
+msgid "Error creating HD-Skin. Not enough flash memory free."
+msgstr "Erreur lors de la création du skin HD. Pas assez de mémoire flash libre."
+
+msgid ""
+"Error creating MetrixHD-Skin.\n"
+"Please check after reboot MyMetrixLite-Plugin and apply your settings."
+msgstr ""
+"Erreur lors de la création du thème MetrixHD.\n"
+"Après le redémarrage merci de vérifier le plugin MyMetrixLite et d’appliquer vos paramètres."
 
 msgid "Error downloading change log."
 msgstr "Erreur lors du téléchargement du log des changements."
@@ -4075,6 +4174,15 @@ msgstr "Dépasse la capacité du support blue disc!"
 msgid "Exceeds dual layer medium!"
 msgstr "Dépasse la capacité du support double couche!"
 
+msgid "Execute after current event"
+msgstr "Exécuter après l’évènement courant."
+
+msgid "Execute in "
+msgstr "Exécuter dans "
+
+msgid "Execution condition"
+msgstr "Condition d’exécution"
+
 msgid "Execution finished!!"
 msgstr "Exécution terminée!!"
 
@@ -4125,6 +4233,9 @@ msgstr "Quitter l'assistant"
 
 msgid "Expert"
 msgstr "Expert"
+
+msgid "Extend"
+msgstr "Etendre"
 
 msgid "Extended GUI"
 msgstr "IGU étendue"
@@ -4187,8 +4298,8 @@ msgstr "Options supplémentaire du moteur"
 msgid "F1"
 msgstr "F1"
 
-msgid "F1/F3"
-msgstr "F1/F3"
+msgid "F1/F3/TRIPLEX"
+msgstr "F1/F3/TRIPLEX"
 
 msgid "F1/LAN"
 msgstr "F1/LAN"
@@ -4233,7 +4344,7 @@ msgid "Failed to write /tmp/positionersetup.log: "
 msgstr "Echec lors de la sauvegarde de /tmp/positionersetup.log: "
 
 msgid "Fallback remote receiver URL"
-msgstr "URL du récepteur de repli distant. Spécifier l'URL complète, y compris http:// et le numéro de port (normalement ...: 8001 ), par exemple http://second_box:8001."
+msgstr "URL du récepteur de repli distant"
 
 #, python-format
 msgid "Fan %d"
@@ -4656,8 +4767,8 @@ msgstr "DISQUE DUR: "
 msgid "HD list"
 msgstr "Liste HD"
 
-msgid "HD1100/HD1200/HD500C/et7x00/et8500"
-msgstr "HD1100/HD1200/HD500C/et7x00/et8500"
+msgid "HD1100/HD1200/HD1265/HD500C/et7x00/et8500"
+msgstr "HD1100/HD1200/HD1265/HD500C/et7x00/et8500"
 
 msgid "HD2400"
 msgstr "HD2400"
@@ -4677,6 +4788,9 @@ msgstr "HDMI CEC"
 
 msgid "HDMI CEC Setup"
 msgstr "Configuration HDMI CEC"
+
+msgid "HDMI Colorspace"
+msgstr "Espace colorimétrique HDMI"
 
 msgid "HDMIin"
 msgstr "HDMIin"
@@ -4717,7 +4831,7 @@ msgstr "Help"
 msgid "Help long"
 msgstr "Help long"
 
-msgid "Helps setting up your antenna"
+msgid "Helps setting up your signal"
 msgstr "Aide au pointage de l’antenne"
 
 msgid "Here you can select which files should be added to backupfile. (default: E2-setup, channels, network"
@@ -5350,6 +5464,9 @@ msgstr "Sélection keymap"
 msgid "Keymap changed, you need to restart the GUI"
 msgstr "Le keymap a changé, vous devez redémarrer l’IGU"
 
+msgid "Kodi MediaCenter"
+msgstr "Kodi MediaCenter"
+
 msgid "LAN adapter"
 msgstr "Adaptateur réseau local"
 
@@ -5358,6 +5475,9 @@ msgstr "Connexion LAN"
 
 msgid "LCD Skin Setup"
 msgstr "Configuration du thème LCD"
+
+msgid "LCD SkinSelector"
+msgstr "Sélectionneur de thème LCD"
 
 msgid "LCD scroll speed"
 msgstr "Vitess de défilement du LCD"
@@ -6501,6 +6621,9 @@ msgstr "Maintenant, utilisez les paramètres de contraste pour indiquer la lumin
 msgid "Number"
 msgstr "Nombre"
 
+msgid "Number of digits in channel number"
+msgstr "Nombre de chiffre dans le numéro de la chaîne"
+
 msgid "Number of rows"
 msgstr "Nombre de lignes"
 
@@ -6603,9 +6726,6 @@ msgstr "Mise à jour logiciel en ligne"
 msgid "OnlineVersionCheck"
 msgstr "Vérification de la version en ligne"
 
-msgid "Only active when in standby"
-msgstr "Seulement actif en veille"
-
 msgid "Only extensions."
 msgstr "Extensions seules"
 
@@ -6701,6 +6821,9 @@ msgstr "Menu principal d’Oscam Info"
 
 msgid "OscamInfo"
 msgstr "OscamInfo"
+
+msgid "OscamInfo Mainmenu"
+msgstr "Menu principal d’OscamInfo"
 
 msgid "Other"
 msgstr "Autre"
@@ -7163,6 +7286,24 @@ msgstr "Veuillez paramétrer le tuner C"
 msgid "Please set up tuner D"
 msgstr "Veuillez paramétrer le tuner D"
 
+msgid "Please set up tuner E"
+msgstr "Merci de configurer le tuner E"
+
+msgid "Please set up tuner F"
+msgstr "Merci de configurer le tuner F"
+
+msgid "Please set up tuner G"
+msgstr "Merci de configurer le tuner G"
+
+msgid "Please set up tuner H"
+msgstr "Merci de configurer le tuner H"
+
+msgid "Please set up tuner I"
+msgstr "Merci de configurer le tuner I"
+
+msgid "Please set up tuner J"
+msgstr "Merci de configurer le tuner J"
+
 msgid ""
 "Please setup your user interface by adjusting the values till the edges of the red box are touching the edges of your TV.\n"
 "When you are ready press OK to continue."
@@ -7218,6 +7359,9 @@ msgstr "Veuillez patienter pendant le test de votre réseau..."
 
 msgid "Please wait while your network is restarting..."
 msgstr "Veullez attendre pendant le redémarrage de votre réseau..."
+
+msgid "Please wait while your skin setting is restoring..."
+msgstr "Veuillez patienter pendant la restauration des paramètres de votre thème…"
 
 msgid "Please wait whilst feeds state is checked."
 msgstr "Merci de patienter pendant que l’état de la liste des feeds est vérifié."
@@ -7346,11 +7490,20 @@ msgstr ""
 "Extinction pendant qu’un enregistrement est en cours!\n"
 "Mise en veille, après l’enregistrement le récepteur sera éteind."
 
+msgid "PowerTimer"
+msgstr "Programmations d’alimentation"
+
+msgid "PowerTimer DeepStandby"
+msgstr "Programmations d’alimentation de veille profonde"
+
 msgid "PowerTimer List"
 msgstr "Liste des PowerTimer"
 
 msgid "PowerTimer Overview"
 msgstr "Aperçu des PowerTimers"
+
+msgid "PowerTimer Standby"
+msgstr "Programmations d’alimentation  de veille"
 
 msgid "PowerTimers"
 msgstr "Programmations d’alimentation"
@@ -7620,6 +7773,9 @@ msgstr "RGB"
 msgid "Radio"
 msgstr "Radio"
 
+msgid "Radio long"
+msgstr "Radio long"
+
 msgid "Ram"
 msgstr "Ram"
 
@@ -7839,6 +7995,9 @@ msgstr "Restant"
 msgid "Remaining & Elapsed"
 msgstr "Restant et écoulé"
 
+msgid "Remember last service in PiP"
+msgstr "Se rappeler le dernier service en PiP"
+
 msgid "Remember service PIN"
 msgstr "Enregistrer PIN service"
 
@@ -8027,6 +8186,9 @@ msgstr "Relancer votre connexion réseau et vos interfaces.\n"
 
 msgid "Restore"
 msgstr "Restaurer"
+
+msgid "Restore MetrixHD Settings"
+msgstr "Restaurer les paramètres MetrixHD"
 
 msgid "Restore Plugins"
 msgstr "Restaurer les plugins"
@@ -8570,6 +8732,9 @@ msgstr "Choisir la fonction désirée et cliquer sur « OK » pour l’assigne
 msgid "Select the movie path"
 msgstr "Choisir le chemin des films"
 
+msgid "Select the sleep timer action."
+msgstr "Définir l’action de la programmations d’alimentation de veille"
+
 msgid "Select upgrade source"
 msgstr "Choisissez la source de mise à niveau"
 
@@ -8963,6 +9128,9 @@ msgstr "Configure tuner"
 
 msgid "Setup Videomode"
 msgstr "Configure le mode vidéo"
+
+msgid "Setup delay mode to zap to channels."
+msgstr "Définir le mode de délai pour zapper les chaînes"
 
 msgid "Setup each tuner for your satellite system"
 msgstr "Configure chaque tuner de votre installation satellite"
@@ -9445,6 +9613,9 @@ msgstr "Afficher l’indicateur occupé lorsque le système est occupé."
 msgid "Show status icons in movielist"
 msgstr "Afficher les icônes de statut dans la liste des films"
 
+msgid "Show status messages when switch to live TV"
+msgstr "Afficher les messages de statut lorsqu’on bascule sur la TV en direct."
+
 msgid "Show subservice selection"
 msgstr "Afficher le choix des sous-services"
 
@@ -9535,14 +9706,14 @@ msgstr "Mélanger liste lecture"
 msgid "Shutdown"
 msgstr "Eteindre"
 
-msgid "Shutdown in (mins)"
-msgstr "Eteindre en (mins)"
-
 msgid "Side by Side"
 msgstr "Côte à Côte"
 
 msgid "Side by side"
 msgstr "Côte à côte"
+
+msgid "Signal Finder"
+msgstr "Pointeur satellites"
 
 msgid "Signal OK, proceeding"
 msgstr "Signal correct, traitement en cours"
@@ -9616,6 +9787,9 @@ msgstr "Configure thème"
 msgid "Skin setup"
 msgstr "Configurer thème/skin"
 
+msgid "SkinSelector"
+msgstr "Sélectionneur de thème"
+
 msgid "Skins"
 msgstr "Thèmes"
 
@@ -9634,14 +9808,14 @@ msgstr "Passer la vérification de la connexion Internet (désactive l’install
 msgid "Sleep"
 msgstr "Veille programmée"
 
+msgid "Sleep Timer"
+msgstr "Programmation de mise en veille"
+
 msgid "Sleep delay"
 msgstr "Délai de la veille programmée"
 
-msgid "Sleeptimer DeepStandby"
-msgstr "Timer de veille profonde"
-
-msgid "Sleeptimer Standby"
-msgstr "Timer de veille"
+msgid "SleepTimer"
+msgstr "Programmation de mise en veille"
 
 msgid "Slide drop"
 msgstr "Diapo tombe"
@@ -9745,6 +9919,13 @@ msgstr "Gestionnaire logiciel"
 
 msgid "Softwareupdate"
 msgstr "Mise à jour logiciel"
+
+msgid ""
+"Some FullHD-Icons are missing.\n"
+"Using HD-Icons!"
+msgstr ""
+"Certains icônes FullHD sont manquants.\n"
+"Utilisation des icônes HD!"
 
 msgid "Some plugins are not available:\n"
 msgstr "Des plugins ne sont pas disponible:\n"
@@ -9868,7 +10049,10 @@ msgstr "Sports"
 msgid "Standard"
 msgstr "Standard"
 
-msgid "Standart list"
+msgid "Standard (always)"
+msgstr "Standard (toujours)"
+
+msgid "Standard list"
 msgstr "Liste standard"
 
 msgid "Standby"
@@ -10284,7 +10468,7 @@ msgstr ""
 "Traduction Française\n"
 "Enigma2 - OpenATV\n"
 "Support: www.opena.tv\n"
-"Dernière MAJ: 19 août 2015"
+"Dernière MAJ: 16 novembre 2015"
 
 msgid "TS file is too large for ISO9660 level 1!"
 msgstr "Fichier TS trop grand pour le niveau 1 ISO9660!"
@@ -10571,6 +10755,9 @@ msgstr "Les résultats ont été écrit sur %s."
 msgid "The servicelist is reloaded."
 msgstr "La liste des services a été rechargée."
 
+msgid "The setting 'without query' is the same as 'standard' without additional confirmation query. All other dependencies (e.g. recordings, time range) stay persist."
+msgstr "Ce paramètre ‘sans demander’ est le même que ‘standard’ sans la question de confirmation supplémentaire. Toutes les autres dépendances restent (p.e. enregistrements, interval de temps)."
+
 msgid "The sleep timer has been activated."
 msgstr "Le timer de sommeil a été activé."
 
@@ -10697,6 +10884,9 @@ msgstr "Cela vous permets de changer la taille de la police relativement à la t
 msgid "This allows you change the number of rows shown."
 msgstr "Permet de modifier le nombre de lignes affichées."
 
+msgid "This allows you to set the number of digits to 5, if you have more than 9999 channels."
+msgstr "Cela vous permets de définir le nombre de chiffre à 5, si vous avez plus de 9999 chaînes."
+
 msgid "This allows you to show drivers modules in downloads"
 msgstr "Cela permet d’afficher le module des pilotes (drivers) dans les téléchargements."
 
@@ -10744,6 +10934,9 @@ msgstr "Cette option permet de réduire le bruit dans l’image. Évidemment, ce
 
 msgid "This option allows to set the level of dynamic contrast of the picture."
 msgstr "Cette option permet de définir le niveau de contraste dynamique de l'image."
+
+msgid "This option allows you can config the Colorspace from Auto to RGB"
+msgstr "Cette option vous permet de configurer l’espace colorimétrique de Auto vers RGB"
 
 msgid "This option allows you choose how to display elapsed time  as + or -"
 msgstr "Cette option permet de choisir comment afficher le temps écoulé comme + ou -"
@@ -11038,7 +11231,7 @@ msgid "Time scale"
 msgstr "Echelle de temps"
 
 msgid "Time settings"
-msgstr "Configuration du temps"
+msgstr "Configuration de l’heure"
 
 msgid "Time to execute command or script"
 msgstr "Délai pour exécuter les commandes ou les scriptes"
@@ -11050,10 +11243,13 @@ msgid "Timeline font size"
 msgstr "Police de caractère de la ligne de temps"
 
 msgid "Timer"
-msgstr "Timer"
+msgstr "Programmation"
 
 msgid "Timer List"
 msgstr "Liste des programmations"
+
+msgid "Timer action"
+msgstr "Action de la minuterie"
 
 msgid "Timer edit"
 msgstr "Editer programmation"
@@ -11063,6 +11259,13 @@ msgstr "Editer programmation"
 
 msgid "Timer entry"
 msgstr "Saisir programmation"
+
+#, python-format
+msgid "Timer is activated: +%d min"
+msgstr "La programmation est activée: +%d min"
+
+msgid "Timer is not activated"
+msgstr "La programmation n’est pas activée"
 
 msgid "Timer log"
 msgstr "Journal des enregistrements"
@@ -11098,9 +11301,6 @@ msgstr "Sélection de programmation"
 
 msgid "Timer selection..."
 msgstr "Sélection de programmation…"
-
-msgid "Timer status:"
-msgstr "Statut programmation:"
 
 msgid "Timer type"
 msgstr "Type programmation"
@@ -11401,7 +11601,7 @@ msgid "UP80  (keymap.u80)"
 msgstr "UP80  (keymap.u80)"
 
 msgid "URL of fallback remote receiver"
-msgstr "URL du récepteur distant de repli"
+msgstr "URL du récepteur de repli distant. Spécifier l'URL complète, y compris http:// et le numéro de port (normalement ...: 8001 ), par exemple http://second_box:8001."
 
 msgid "USALS"
 msgstr "USALS"
@@ -11471,6 +11671,13 @@ msgstr "LNB universel"
 
 msgid "Unknown"
 msgstr "Inconnu"
+
+msgid ""
+"Unknown Error creating Skin.\n"
+"Please check after reboot MyMetrixLite-Plugin and apply your settings."
+msgstr ""
+"Erreur inconnue lors de la création du thème.\n"
+"Après le redémarrage merci de vérifier le plugin MyMetrixLite et d’appliquer vos paramètres."
 
 msgid "Unmount"
 msgstr "Démonter"
@@ -11702,9 +11909,6 @@ msgstr "Utiliser ces paramètres vidéo améliorés?"
 msgid "Use time jumps for fast forward/backward"
 msgstr "Utiliser le saut dans le temps pour l’avance/le retour rapide"
 
-msgid "Use time of currently running service"
-msgstr "Utiliser l’heure du service en cours"
-
 msgid "Use timeshift seekbar while timeshifting?"
 msgstr "Utiliser la barre de recherche du PauseDirect pendant un PauseDirect?"
 
@@ -11728,6 +11932,12 @@ msgstr "Perso - bouquets"
 
 msgid "User defined"
 msgstr "Défini par l'utilisateur"
+
+msgid "User defined delay when you press another button to zap to the channel."
+msgstr "Délai défini par l’utilisateur lorsque vous appuyez sur un autre bouton pour zapper vers une chaîne."
+
+msgid "User defined delay when you press the first button to zap to the channel."
+msgstr "Délai défini par l’utilisateur lorsque vous appuyez sur le premier bouton pour zapper vers une chaîne."
 
 msgid "User defined transponder"
 msgstr "Transpondeur défini par l’utilisateur"
@@ -11813,6 +12023,9 @@ msgstr "Paramètres vidéo"
 
 msgid "Video clipping"
 msgstr "Montage vidéo"
+
+msgid "Video clipping setup"
+msgstr "Configuration montage vidéo"
 
 #, python-format
 msgid "Video content: %ix%i%s %iHz"
@@ -12163,9 +12376,6 @@ msgstr "Quel jour de la semaine?"
 msgid "What action is required on complettion of the timer? 'Auto' lets the box return to the state it had when the timer started. 'Do nothing', 'Go to standby' and 'Go to deep standby' do ecaxtly that."
 msgstr "Quelle action est requise à la fin d’une programmation? ‘Auto’ laisse le récepteur retourner dans l’état qu’il avait quand la programmation a démarré. ‘Ne rien faire’, ‘Aller en veille’ et ‘Aller en veille profonde’ font ce qu’ils décrivent."
 
-msgid "What date of month ?"
-msgstr "Quel jour du mois?"
-
 msgid "What do you want to scan?"
 msgstr "Que voulez-vous analyser?"
 
@@ -12258,6 +12468,9 @@ msgstr "Lorsqu’elle est activée, reformatte les sous-titres pour correspondre
 
 msgid "When enabled, show channel numbers in the channel selection screen."
 msgstr "Lorsqu’il est activé, affiche le numéro de la chaîne dans l’écran de sélection des chaînes."
+
+msgid "When enabled, show status or error messages."
+msgstr "Lorsqu’elle est activée, indique le statut ou les messages d’erreur."
 
 msgid "When enabled, subtitles for the hearing impaired can be used."
 msgstr "Lorsqu’il est activé, les sous-titres pour les mal entendants peuvent être utilisés."
@@ -12577,6 +12790,9 @@ msgstr "Vous devez créer un fichier swap avant d'activer le démarrage automati
 msgid "You have to wait %s!"
 msgstr "Vous devez attendre %s!"
 
+msgid "You must set at least one Command"
+msgstr "Vous devez définir au minimum une commande"
+
 msgid ""
 "You need a PC connected to your %s %s. If you need further instructions, please visit the website http://www.opena.tv.\n"
 "Your %s %s will now be halted. After you have performed the update instructions from the website, your new firmware will ask you to restore your settings."
@@ -12670,6 +12886,10 @@ msgstr ""
 
 #, python-format
 msgid "Your %s %s will Reboot..."
+msgstr "Votre %s %s va rédemarrer…"
+
+#, python-format
+msgid "Your %s %s will Restart..."
 msgstr "Votre %s %s va rédemarrer…"
 
 #, python-format
@@ -13684,6 +13904,9 @@ msgstr "aucun"
 msgid "normal"
 msgstr "normal"
 
+msgid "not activated"
+msgstr "pas activé"
+
 msgid "not configured"
 msgstr "pas configuré"
 
@@ -13739,6 +13962,9 @@ msgstr "une fois"
 
 msgid "only HD"
 msgstr "seulement HD"
+
+msgid "only in Standby"
+msgstr "uniquement en veille"
 
 msgid "open nameserver configuration"
 msgstr "ouvrir configuration nom serveur"
@@ -14306,6 +14532,9 @@ msgstr "large"
 msgid "width"
 msgstr "largeur"
 
+msgid "will take about 1-4 minutes for this system\n"
+msgstr "cela prendre de 1 à 4 minutes sur votre système\n"
+
 msgid "will take about 3-12 minutes for this system\n"
 msgstr "cela prendre 3 à 12 minutes sur votre système\n"
 
@@ -14329,6 +14558,9 @@ msgstr "avec les boutons gauche/droit"
 
 msgid "with long OK press"
 msgstr "avec un appui long sur OK"
+
+msgid "without Query"
+msgstr "sans demander"
 
 msgid "working"
 msgstr "travail en cours..."
